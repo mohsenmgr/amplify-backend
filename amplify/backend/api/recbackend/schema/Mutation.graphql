@@ -1,0 +1,5 @@
+type Mutation {
+      # Add Example Row
+    makeTodo(id: ID!,title: String!,description: String,photo: String ): Todo
+    @function(name: "todoLambda-${env}")
+}

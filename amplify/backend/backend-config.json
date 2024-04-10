@@ -18,5 +18,39 @@
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
     }
+  },
+  "function": {
+    "todoLambda": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "recbackend"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_todoLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_todoLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoLambda"
+        }
+      ]
+    }
   }
 }

@@ -2,6 +2,16 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
+export type Todo = {
+  __typename: "Todo",
+  id: string,
+  title: string,
+  description?: string | null,
+  photo?: string | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
 export type CreateTodoInput = {
   id?: string | null,
   title: string,
@@ -56,16 +66,6 @@ export type ModelSizeInput = {
   ge?: number | null,
   gt?: number | null,
   between?: Array< number | null > | null,
-};
-
-export type Todo = {
-  __typename: "Todo",
-  id: string,
-  title: string,
-  description?: string | null,
-  photo?: string | null,
-  createdAt: string,
-  updatedAt: string,
 };
 
 export type UpdateTodoInput = {
@@ -150,6 +150,25 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type MakeTodoMutationVariables = {
+  id: string,
+  title: string,
+  description?: string | null,
+  photo?: string | null,
+};
+
+export type MakeTodoMutation = {
+  makeTodo?:  {
+    __typename: "Todo",
+    id: string,
+    title: string,
+    description?: string | null,
+    photo?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type CreateTodoMutationVariables = {
   input: CreateTodoInput,
   condition?: ModelTodoConditionInput | null,
@@ -199,6 +218,18 @@ export type DeleteTodoMutation = {
     createdAt: string,
     updatedAt: string,
   } | null,
+};
+
+export type GetTodosQuery = {
+  getTodos?:  Array< {
+    __typename: "Todo",
+    id: string,
+    title: string,
+    description?: string | null,
+    photo?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null > | null,
 };
 
 export type GetTodoQueryVariables = {

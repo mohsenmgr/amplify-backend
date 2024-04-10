@@ -1,0 +1,5 @@
+type Query {
+   # get todo list
+    getTodos : [Todo]
+    @function(name: "todoLambda-${env}")
+}
