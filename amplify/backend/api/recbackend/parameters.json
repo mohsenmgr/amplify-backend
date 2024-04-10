@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "recbackend",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-04-10T08:57:26.457Z"
+}

@@ -1,0 +1,22 @@
+{
+  "api": {
+    "recbackend": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-04-17T08:57:20.643Z",
+              "apiKeyExpirationDays": 7,
+              "description": "graphql api key"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  }
+}
