@@ -10,6 +10,7 @@ export type Todo = {
   photo?: string | null,
   createdAt: string,
   updatedAt: string,
+  owner?: string | null,
 };
 
 export type CreateTodoInput = {
@@ -166,6 +167,7 @@ export type MakeTodoMutation = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -183,6 +185,7 @@ export type CreateTodoMutation = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -200,6 +203,7 @@ export type UpdateTodoMutation = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -217,6 +221,7 @@ export type DeleteTodoMutation = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -229,6 +234,7 @@ export type GetTodosQuery = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null > | null,
 };
 
@@ -245,6 +251,7 @@ export type GetTodoQuery = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -265,6 +272,7 @@ export type ListTodosQuery = {
       photo?: string | null,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -272,6 +280,7 @@ export type ListTodosQuery = {
 
 export type OnCreateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreateTodoSubscription = {
@@ -283,11 +292,13 @@ export type OnCreateTodoSubscription = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -299,11 +310,13 @@ export type OnUpdateTodoSubscription = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -315,5 +328,6 @@ export type OnDeleteTodoSubscription = {
     photo?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };

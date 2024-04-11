@@ -2,5 +2,11 @@
   "AppSyncApiName": "recbackend",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2024-04-10T08:57:26.457Z"
+  "AuthModeLastUpdated": "2024-04-11T10:11:41.831Z",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authrecbackend06edb6a0",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

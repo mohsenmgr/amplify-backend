@@ -4,10 +4,8 @@
     "apiName": "recbackend",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7,
-      "apiKeyExpirationDate": "2024-04-17T08:57:20.643Z",
-      "keyDescription": "graphql api key"
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authrecbackend06edb6a0"
     },
     "conflictResolution": {},
     "additionalAuthTypes": []

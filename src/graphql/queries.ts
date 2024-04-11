@@ -11,6 +11,7 @@ export const getTodos = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -24,6 +25,7 @@ export const getTodo = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -42,6 +44,7 @@ export const listTodos = /* GraphQL */ `
         photo
         createdAt
         updatedAt
+        owner
         __typename
       }
       nextToken

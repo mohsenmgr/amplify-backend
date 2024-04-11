@@ -16,6 +16,7 @@ export const makeTodo = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -32,6 +33,7 @@ export const createTodo = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -48,6 +50,7 @@ export const updateTodo = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -64,6 +67,7 @@ export const deleteTodo = /* GraphQL */ `
       photo
       createdAt
       updatedAt
+      owner
       __typename
     }
   }

@@ -1,5 +1,6 @@
 type Query {
-   # get todo list
-    getTodos : [Todo]
-    @function(name: "todoLambda-${env}")
+  # get todo list
+  getTodos: [Todo] 
+  @function(name: "todoLambda-${env}") 
+  @aws_cognito_user_pools
 }
