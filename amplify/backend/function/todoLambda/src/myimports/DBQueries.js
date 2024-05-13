@@ -1,6 +1,10 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES Modules import
 import { TODOS_TABLE } from "../constants.js";
-import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
+import {
+  DynamoDBDocumentClient,
+  QueryCommand,
+  PutCommand,
+} from "@aws-sdk/lib-dynamodb";
 
 const client = new DynamoDBClient({
   region: process.env.REGION,
@@ -19,6 +23,31 @@ const ddbDocClient = DynamoDBDocumentClient.from(client, {
   marshallOptions,
   unmarshallOptions,
 });
+
+const addTodo = async (args) => {
+  const { id, userId, title, description, photo } = args;
+  const currentDate = new Date().toISOString();
+
+  const item = {
+    id: id,
+    userId: userId,
+    title: title,
+    description: description,
+    photo: photo,
+    createdAt: currentDate,
+    updatedAt: currentDate,
+  };
+
+  const params = {
+    TableName: TODOS_TABLE,
+    Item: item,
+  };
+
+  const command = new PutCommand(params);
+  const response = await ddbDocClient.send(command);
+
+  return response ? item : null;
+};
 
 const listAllTodos = async (userIdParam) => {
   const input = {
@@ -44,4 +73,4 @@ const listAllTodos = async (userIdParam) => {
   }
 };
 
-export { listAllTodos };
+export { listAllTodos, addTodo };
