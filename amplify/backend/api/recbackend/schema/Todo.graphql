@@ -2,7 +2,10 @@ type Todo
   @model
   @auth(rules: [{ allow: owner, operations: [read, create, update, delete] }]) {
   id: ID!
+  userId: String! @index(name: "byOwner")
   title: String!
   description: String
   photo: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
 }

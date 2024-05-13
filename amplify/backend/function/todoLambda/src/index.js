@@ -10,17 +10,17 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-const { listAllTodos } = require('./DBQueries');
+import { listAllTodos } from "./myimports/DBQueries.js";
 
+export const handler = async (event) => {
+  console.log(`EVENT: ${JSON.stringify(event)}`);
+  const args = event.arguments;
+  const { userId } = args;
 
-exports.handler = async (event) => {
-    console.log(`EVENT: ${JSON.stringify(event)}`);
-    try {
-
-        const response =  await listAllTodos();
-        return response;
-
-    } catch (error) {
-        throw error;
-    }
+  try {
+    const response = await listAllTodos(userId);
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };

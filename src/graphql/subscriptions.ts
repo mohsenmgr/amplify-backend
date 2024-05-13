@@ -2,54 +2,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo(
-    $filter: ModelSubscriptionTodoFilterInput
-    $owner: String
-  ) {
-    onCreateTodo(filter: $filter, owner: $owner) {
-      id
-      title
-      description
-      photo
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
+import * as APITypes from "../API";
+type GeneratedSubscription<InputType, OutputType> = string & {
+  __generatedSubscriptionInput: InputType;
+  __generatedSubscriptionOutput: OutputType;
+};
+
+export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onCreateTodo(filter: $filter, owner: $owner) {
+    id
+    userId
+    title
+    description
+    photo
+    createdAt
+    updatedAt
+    owner
+    __typename
   }
-`;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo(
-    $filter: ModelSubscriptionTodoFilterInput
-    $owner: String
-  ) {
-    onUpdateTodo(filter: $filter, owner: $owner) {
-      id
-      title
-      description
-      photo
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateTodoSubscriptionVariables,
+  APITypes.OnCreateTodoSubscription
+>;
+export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onUpdateTodo(filter: $filter, owner: $owner) {
+    id
+    userId
+    title
+    description
+    photo
+    createdAt
+    updatedAt
+    owner
+    __typename
   }
-`;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo(
-    $filter: ModelSubscriptionTodoFilterInput
-    $owner: String
-  ) {
-    onDeleteTodo(filter: $filter, owner: $owner) {
-      id
-      title
-      description
-      photo
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateTodoSubscriptionVariables,
+  APITypes.OnUpdateTodoSubscription
+>;
+export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onDeleteTodo(filter: $filter, owner: $owner) {
+    id
+    userId
+    title
+    description
+    photo
+    createdAt
+    updatedAt
+    owner
+    __typename
   }
-`;
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteTodoSubscriptionVariables,
+  APITypes.OnDeleteTodoSubscription
+>;
