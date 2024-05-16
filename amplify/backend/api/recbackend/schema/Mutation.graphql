@@ -8,5 +8,7 @@ type Mutation {
     photo: String
     createdAt: AWSDateTime
     updatedAt: AWSDateTime
+    dueDate: AWSDateTime
+    done: Boolean
   ): Todo @function(name: "todoLambda-${env}")
 }

@@ -208,6 +208,8 @@ export type MakeTodoMutationVariables = {
   photo?: string | null,
   createdAt?: string | null,
   updatedAt?: string | null,
+  dueDate?: string | null,
+  done?: boolean | null,
 };
 
 export type MakeTodoMutation = {

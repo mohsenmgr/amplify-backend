@@ -16,6 +16,8 @@ export const makeTodo = /* GraphQL */ `mutation MakeTodo(
   $photo: String
   $createdAt: AWSDateTime
   $updatedAt: AWSDateTime
+  $dueDate: AWSDateTime
+  $done: Boolean
 ) {
   makeTodo(
     id: $id
@@ -25,6 +27,8 @@ export const makeTodo = /* GraphQL */ `mutation MakeTodo(
     photo: $photo
     createdAt: $createdAt
     updatedAt: $updatedAt
+    dueDate: $dueDate
+    done: $done
   ) {
     id
     userId
