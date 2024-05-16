@@ -31,6 +31,8 @@ export const makeTodo = /* GraphQL */ `mutation MakeTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -51,6 +53,8 @@ export const createTodo = /* GraphQL */ `mutation CreateTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -71,6 +75,8 @@ export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -91,6 +97,8 @@ export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner

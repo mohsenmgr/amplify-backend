@@ -15,6 +15,8 @@ export const getTodos = /* GraphQL */ `query GetTodos($userId: String!) {
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -29,6 +31,8 @@ export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -48,6 +52,8 @@ export const listTodos = /* GraphQL */ `query ListTodos(
       title
       description
       photo
+      done
+      dueDate
       createdAt
       updatedAt
       owner
@@ -78,6 +84,8 @@ export const todosByUserId = /* GraphQL */ `query TodosByUserId(
       title
       description
       photo
+      done
+      dueDate
       createdAt
       updatedAt
       owner

@@ -25,7 +25,7 @@ const ddbDocClient = DynamoDBDocumentClient.from(client, {
 });
 
 const addTodo = async (args) => {
-  const { id, userId, title, description, photo } = args;
+  const { id, userId, title, description, photo, dueDate, done } = args;
   const currentDate = new Date().toISOString();
 
   const item = {
@@ -34,6 +34,8 @@ const addTodo = async (args) => {
     title: title,
     description: description,
     photo: photo,
+    dueDate: dueDate,
+    done: done,
     createdAt: currentDate,
     updatedAt: currentDate,
   };
@@ -68,9 +70,9 @@ const listAllTodos = async (userIdParam) => {
 
   if (response.Items.length) {
     return response.Items;
-  } else {
-    return [];
   }
+
+  return [];
 };
 
 export { listAllTodos, addTodo };

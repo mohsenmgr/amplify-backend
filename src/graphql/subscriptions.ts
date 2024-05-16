@@ -18,6 +18,8 @@ export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -38,6 +40,8 @@ export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner
@@ -58,6 +62,8 @@ export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo(
     title
     description
     photo
+    done
+    dueDate
     createdAt
     updatedAt
     owner

@@ -6,6 +6,8 @@ type Todo
   title: String!
   description: String
   photo: String
+  done: Boolean
+  dueDate: AWSDateTime
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }
