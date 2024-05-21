@@ -4,6 +4,7 @@ import {
   DynamoDBDocumentClient,
   QueryCommand,
   PutCommand,
+  UpdateCommand,
 } from "@aws-sdk/lib-dynamodb";
 
 const client = new DynamoDBClient({
@@ -75,4 +76,85 @@ const listAllTodos = async (userIdParam) => {
   return [];
 };
 
-export { listAllTodos, addTodo };
+const modifyTodo = async (args) => {
+  const { id, title, description, photo, dueDate, done } = args;
+  const currentDate = new Date().toISOString();
+
+  console.log(`MY ARGS ARE ${JSON.stringify(args)}`);
+
+  /*TODO ADD THIS */
+  // Filter out attributes with empty string values
+  const newValues = {
+    title: title,
+    description: description,
+    photo: photo,
+    dueDate: dueDate,
+    done: done,
+    updatedAt: currentDate,
+  };
+
+  const validNewValues = {};
+  for (const [key, value] of Object.entries(newValues)) {
+    if (value) {
+      validNewValues[key] = value;
+    }
+  }
+
+  if (Object.keys(validNewValues).length === 0) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "No valid attributes to update",
+      }),
+    };
+  }
+
+  /* FINISH */
+
+  const params = {
+    TableName: TODOS_TABLE,
+    Key: { id: id },
+    UpdateExpression: "SET",
+    ExpressionAttributeNames: {},
+    ExpressionAttributeValues: {},
+    ReturnValues: "ALL_NEW",
+  };
+
+  // Build the UpdateExpression and ExpressionAttributeNames/Values
+  Object.keys(validNewValues).forEach((key, index) => {
+    const attributeName = `#attr${index}`;
+    const attributeValue = `:val${index}`;
+    params.UpdateExpression += ` ${attributeName} = ${attributeValue},`;
+    params.ExpressionAttributeNames[attributeName] = key;
+    params.ExpressionAttributeValues[attributeValue] = validNewValues[key];
+  });
+
+  // Remove the trailing comma from the UpdateExpression
+  params.UpdateExpression = params.UpdateExpression.slice(0, -1);
+
+  console.log(`MY params ARE ${JSON.stringify(params)}`);
+
+  try {
+    const result = await ddbDocClient.send(new UpdateCommand(params));
+    console.log(`END RESULT IS ${JSON.stringify(result)}`);
+    return result.Attributes;
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: "Record updated successfully",
+        updatedAttributes: result.Attributes,
+      }),
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Failed to update record",
+        error: error.message,
+      }),
+    };
+  }
+};
+
+export { listAllTodos, addTodo, modifyTodo };

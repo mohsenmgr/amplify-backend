@@ -10,11 +10,18 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-import { listAllTodos, addTodo } from "./myimports/DBQueries.js";
+import { listAllTodos, addTodo, modifyTodo } from "./myimports/DBQueries.js";
 
-const execMutation = async (args) => {
+const execMutation = async (fieldName, args) => {
   try {
-    return await addTodo(args);
+    switch (fieldName) {
+      case "makeTodo":
+        return await addTodo(args);
+      case "modifyTodo":
+        return await modifyTodo(args);
+      default:
+        throw new Error("Mutation not found!");
+    }
   } catch (error) {
     throw error;
   }
@@ -31,13 +38,15 @@ const execQuery = async (userId) => {
 
 export const handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
+  const { typeName, fieldName } = event;
   const args = event.arguments;
-  const { userId } = args;
-  const eventType = event.typeName;
 
-  switch (eventType) {
+  const userId = args.userId !== undefined ? args.userId : "";
+  console.log(`event type is ${typeName}`);
+
+  switch (typeName) {
     case "Mutation":
-      return await execMutation(args);
+      return await execMutation(fieldName, args);
     case "Query":
       return await execQuery(userId);
     default:

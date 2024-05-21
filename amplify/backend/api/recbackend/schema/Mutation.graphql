@@ -11,4 +11,13 @@ type Mutation {
     dueDate: AWSDateTime
     done: Boolean
   ): Todo @function(name: "todoLambda-${env}")
+
+  modifyTodo(
+    id: ID!
+    title: String
+    description: String
+    photo: String
+    dueDate: AWSDateTime
+    done: Boolean
+  ): Todo @function(name: "todoLambda-${env}")
 }

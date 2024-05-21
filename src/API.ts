@@ -228,6 +228,31 @@ export type MakeTodoMutation = {
   } | null,
 };
 
+export type ModifyTodoMutationVariables = {
+  id: string,
+  title?: string | null,
+  description?: string | null,
+  photo?: string | null,
+  dueDate?: string | null,
+  done?: boolean | null,
+};
+
+export type ModifyTodoMutation = {
+  modifyTodo?:  {
+    __typename: "Todo",
+    id: string,
+    userId: string,
+    title: string,
+    description?: string | null,
+    photo?: string | null,
+    done?: boolean | null,
+    dueDate?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    owner?: string | null,
+  } | null,
+};
+
 export type CreateTodoMutationVariables = {
   input: CreateTodoInput,
   condition?: ModelTodoConditionInput | null,

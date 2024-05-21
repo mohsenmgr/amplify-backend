@@ -47,6 +47,39 @@ export const makeTodo = /* GraphQL */ `mutation MakeTodo(
   APITypes.MakeTodoMutationVariables,
   APITypes.MakeTodoMutation
 >;
+export const modifyTodo = /* GraphQL */ `mutation ModifyTodo(
+  $id: ID!
+  $title: String
+  $description: String
+  $photo: String
+  $dueDate: AWSDateTime
+  $done: Boolean
+) {
+  modifyTodo(
+    id: $id
+    title: $title
+    description: $description
+    photo: $photo
+    dueDate: $dueDate
+    done: $done
+  ) {
+    id
+    userId
+    title
+    description
+    photo
+    done
+    dueDate
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.ModifyTodoMutationVariables,
+  APITypes.ModifyTodoMutation
+>;
 export const createTodo = /* GraphQL */ `mutation CreateTodo(
   $input: CreateTodoInput!
   $condition: ModelTodoConditionInput
