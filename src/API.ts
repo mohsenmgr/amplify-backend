@@ -253,6 +253,14 @@ export type ModifyTodoMutation = {
   } | null,
 };
 
+export type RemoveTodoMutationVariables = {
+  id: string,
+};
+
+export type RemoveTodoMutation = {
+  removeTodo?: string | null,
+};
+
 export type CreateTodoMutationVariables = {
   input: CreateTodoInput,
   condition?: ModelTodoConditionInput | null,

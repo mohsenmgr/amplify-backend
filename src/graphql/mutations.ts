@@ -80,6 +80,13 @@ export const modifyTodo = /* GraphQL */ `mutation ModifyTodo(
   APITypes.ModifyTodoMutationVariables,
   APITypes.ModifyTodoMutation
 >;
+export const removeTodo = /* GraphQL */ `mutation RemoveTodo($id: ID!) {
+  removeTodo(id: $id)
+}
+` as GeneratedMutation<
+  APITypes.RemoveTodoMutationVariables,
+  APITypes.RemoveTodoMutation
+>;
 export const createTodo = /* GraphQL */ `mutation CreateTodo(
   $input: CreateTodoInput!
   $condition: ModelTodoConditionInput

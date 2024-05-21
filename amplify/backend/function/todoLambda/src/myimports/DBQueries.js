@@ -5,6 +5,7 @@ import {
   QueryCommand,
   PutCommand,
   UpdateCommand,
+  DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
 
 const client = new DynamoDBClient({
@@ -157,4 +158,33 @@ const modifyTodo = async (args) => {
   }
 };
 
-export { listAllTodos, addTodo, modifyTodo };
+const removeTodo = async (args) => {
+  const { id } = args;
+
+  if (!id) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "Failed to delete record",
+        error: "ID not passed",
+      }),
+    };
+  }
+
+  const params = {
+    TableName: TODOS_TABLE,
+    Key: { id: id },
+  };
+  try {
+    const result = await ddbDocClient.send(new DeleteCommand(params));
+    console.log(`END RESULT IS ${JSON.stringify(result)}`);
+    return "SUCCESS";
+  } catch (error) {
+    return JSON.stringify({
+      message: "Failed to delete record, id not found",
+      error: error,
+    });
+  }
+};
+
+export { listAllTodos, addTodo, modifyTodo, removeTodo };

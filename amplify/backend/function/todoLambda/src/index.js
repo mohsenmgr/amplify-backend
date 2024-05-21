@@ -10,7 +10,12 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-import { listAllTodos, addTodo, modifyTodo } from "./myimports/DBQueries.js";
+import {
+  listAllTodos,
+  addTodo,
+  modifyTodo,
+  removeTodo,
+} from "./myimports/DBQueries.js";
 
 const execMutation = async (fieldName, args) => {
   try {
@@ -19,6 +24,8 @@ const execMutation = async (fieldName, args) => {
         return await addTodo(args);
       case "modifyTodo":
         return await modifyTodo(args);
+      case "removeTodo":
+        return await removeTodo(args);
       default:
         throw new Error("Mutation not found!");
     }

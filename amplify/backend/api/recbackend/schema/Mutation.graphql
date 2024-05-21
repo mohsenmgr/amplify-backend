@@ -20,4 +20,6 @@ type Mutation {
     dueDate: AWSDateTime
     done: Boolean
   ): Todo @function(name: "todoLambda-${env}")
+
+  removeTodo(id: ID!): String @function(name: "todoLambda-${env}")
 }
