@@ -96,7 +96,7 @@ const modifyTodo = async (args) => {
 
   const validNewValues = {};
   for (const [key, value] of Object.entries(newValues)) {
-    if (value) {
+    if (value !== undefined && value !== null) {
       validNewValues[key] = value;
     }
   }

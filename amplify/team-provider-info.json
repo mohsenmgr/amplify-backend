@@ -18,7 +18,7 @@
       "function": {
         "todoLambda": {
           "deploymentBucketName": "amplify-recbackend-dev-104940-deployment",
-          "s3Key": "amplify-builds/todoLambda-69714c426d4776757335-build.zip"
+          "s3Key": "amplify-builds/todoLambda-58313750744e62794b35-build.zip"
         }
       },
       "auth": {
